@@ -1,0 +1,24 @@
+.tasks {
+    width: 75%;
+    margin: auto;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.header {
+    width: 80%;
+    margin: 50px auto 30px auto;
+}
+
+h1 {
+    font-size: 37px;
+    text-align: center;
+    padding: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}

@@ -1,0 +1,29 @@
+<div class="header">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span>Your Tasks</span>
+            <span class="example-spacer"></span>
+            <button routerLink="add-task" mat-button>Add New Task</button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>
+
+    
+<div *ngIf="userTasks" class="tasks">
+    
+    <mat-card class="card" *ngFor="let task of userTasks">
+        <mat-card-header>
+          <mat-card-title>{{ task.title }}</mat-card-title>
+          <mat-card-subtitle>{{ task.info }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button routerLink="/edit-task/{{ task.id }}" mat-button color="primary">Edit</button>
+          <button (click)="deleteTask(task.id)" mat-button color="warn">Delete</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>
+
+<div *ngIf="userTasks.length == 0">
+  <h1>You didn't have any task right now</h1>
+</div>

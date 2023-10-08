@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "name": "shyam karnam",
+      "email": "shyam@gmail.com",
+      "password": "shyam",
+      "gender": "male",
+      "address": "vizag",
+      "date": "15-5-2004",
+      "id": 1
+    },
+    {
+      "name": "testuser",
+      "email": "testuser@gmail.com",
+      "password": "12345",
+      "gender": "female",
+      "address": "i don't know",
+      "date": "26-1-2000",
+      "id": 2
+    }
+  ],
+  "tasks": []
+}

@@ -6,22 +6,45 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Project setup
+create new angular project
+``` bash
+ng new angular-todo
+cd angular-todo
+```
+install dependencies
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+ng add @angular/material
+sudo npm install ngx-toastr --save
+npm install -g Json-server
+```
 
-## Running end-to-end tests
+creating required components
+```bash
+ng g c components/login
+ng g c components/register
+ng g c components/home
+ng g c components/add-task
+ng g c components/edit-task
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+creating required services
+```bash
+ng g s services/auth
+ng g s services/task
+```
 
-## Further help
+creating required guard
+```
+ng g g guard/auth
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+starting json server
+```
+json-server –watch db.json
+```

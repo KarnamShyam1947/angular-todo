@@ -1,0 +1,88 @@
+<mat-card class="form-section">
+    <form [formGroup]="registerData" (ngSubmit)="register()">
+        <h1>Register Here</h1>
+        <mat-card-content>
+            <mat-form-field class="form-input" appearance="outline">
+                <input formControlName="name" type="text" matInput>
+                <mat-label>Name</mat-label>
+
+                <mat-error *ngIf="registerData.get('name')?.touched && registerData.get('name')?.hasError('required')">
+                    <b>Name</b> field is required
+                </mat-error>
+                
+                <mat-error *ngIf="registerData.get('name')?.touched && registerData.get('name')?.hasError('minlength')">
+                    <b>Name</b> must contain 6 characters
+                </mat-error>
+
+            </mat-form-field>
+            
+            <mat-form-field class="form-input" appearance="outline">
+                <input formControlName="email" type="email" matInput>
+                <mat-label>Email</mat-label>
+
+                <mat-error *ngIf="registerData.get('email')?.touched && registerData.get('email')?.hasError('required')">
+                    <b>Email</b> field is required
+                </mat-error>
+                
+                <mat-error *ngIf="registerData.get('email')?.touched && registerData.get('email')?.hasError('email')">
+                    please enter a valid <b>email</b>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field class="form-input" appearance="outline">
+                <input formControlName="password" type="password" matInput>
+                <mat-label>Password</mat-label>
+
+                <mat-error *ngIf="registerData.get('password')?.touched && registerData.get('password')?.hasError('required')">
+                    <b>Password</b> field is required
+                </mat-error>
+
+            </mat-form-field>
+            
+            <mat-form-field class="form-input" appearance="outline">
+                <input formControlName="password1" type="password" matInput>
+                <mat-label>Renter password</mat-label>
+                
+                <mat-error *ngIf="registerData.get('password1')?.touched && registerData.get('password1')?.hasError('required')">
+                    <b>Password</b> field is required
+                </mat-error>
+                
+                <mat-error *ngIf="registerData.get('password1')?.touched && registerData.get('password1')?.hasError('MatchPasswordError')">
+                    <b>Password</b> must match
+                </mat-error>
+                
+            </mat-form-field>
+
+            <mat-form-field class="form-input" appearance="outline">
+                <mat-select formControlName="gender">
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">female</mat-option>
+                    <mat-option value="others">others</mat-option>
+                </mat-select>
+
+                <mat-label>Gender</mat-label>
+            </mat-form-field>
+
+            <mat-form-field class="form-input" appearance="outline">
+                <mat-label>Date of birth</mat-label>
+                <input formControlName="dob" matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-input" appearance="outline">
+                <textarea formControlName="address" matInput></textarea>
+                <mat-label>Address</mat-label>
+            </mat-form-field>
+              
+        </mat-card-content>
+
+        <div style="text-align: center; ">
+            <mat-card-footer>
+                <button [disabled]="registerData.invalid" mat-raised-button color="accent">Register</button>
+            </mat-card-footer>
+        </div>
+    </form>
+</mat-card>

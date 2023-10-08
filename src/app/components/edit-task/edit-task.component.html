@@ -1,0 +1,29 @@
+<mat-card class="form-section">
+    <h1>Edit Our Task</h1>
+    <form (ngSubmit)="updateTask()" [formGroup]="updateForm">
+        <mat-card-content>
+
+            <mat-form-field class="form-full-input" appearance="outline">
+                <input formControlName="title" matInput type="text">
+                <mat-label>Task Title</mat-label>
+
+                <mat-error>
+                    <b>Title</b> is required.
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="form-full-input"  appearance="outline">
+                <textarea formControlName="info" matInput></textarea>
+                <mat-label>Task Info</mat-label>
+            </mat-form-field>
+
+        </mat-card-content>
+
+        <div style="text-align: center;">
+            <mat-card-footer>
+                <button [disabled]="updateForm.invalid" mat-raised-button color="primary">Add Task</button>
+                <button routerLink="../../home" mat-raised-button color="accent">Cancel</button>
+            </mat-card-footer>
+        </div>
+    </form>
+</mat-card>
